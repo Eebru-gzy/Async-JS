@@ -96,7 +96,7 @@ getIds.then(Ids => {
     console.log('Error!!!'); //if rejected, this would then take place
 });
 
-*/
+
 
 
 // From Promise to Async/Wait: (ES7) help makes consuming Promises easier: async/await actually consumes promises and not to produce them
@@ -150,13 +150,13 @@ getRecipeAw().then(res => {
     console.log(`${res} is yummy`)
 })
 
+*/
 
+/////////////Making Ajax call with fetch and promises
 
+//Weather API-call
 
-
-
-
-
+fetch("https://crossorigin.me/https://www.metaweather.com/api/location/2487956/");
 
 
 
