@@ -156,8 +156,26 @@ getRecipeAw().then(res => {
 
 //Weather API-call
 
-fetch("https://crossorigin.me/https://www.metaweather.com/api/location/2487956/");
+function getWeather (woeid) {
+    fetch(
+     `https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`
+    )
+     .then(result => {
+      console.log(result);
+      return result.json();
+     })
+     .then(data => {
+        //  console.log(data);
+        const today = data.consolidated_weather[0]
+        console.log(`The temperature in ${data.title} today is between ${today.min_temp} and ${today.max_temp} `)
+     })
+     .catch(e => {
+      console.log(e);
+     });
+}
 
+getWeather(44418);
+getWeather(2487956);
 
 
 
