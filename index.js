@@ -159,7 +159,7 @@ getRecipeAw().then(res => {
 function getWeather (woeid) {
     fetch(
      `https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`
-    )
+    ) //same origin policy
      .then(result => {
       console.log(result);
       return result.json();
@@ -179,10 +179,18 @@ getWeather(2487956);
 
 
 
+// Using async and await to consume promise from fetch
+
+async function getweatherAw (woeid) {
+    const result = await fetch(
+     `https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`
+    );
+    const data = await result.json();
+
+    console.log(data);
+}
 
 
-
-
-
-
+getweatherAw(44418);
+getweatherAw(2487956);
 
