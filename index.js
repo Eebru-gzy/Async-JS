@@ -109,7 +109,7 @@ studyMonths.then((something) => {
 //__________________//
 
 
-//Promise: its an object that keeps track whether an eveny has happened or not, if happened, determine what to do with it. Promise is a time sensitive event and so it has different states, when the event hasn't happened, it is in a 'pending' state: when the event happened, it is in a fullfilled state: the fullfilled state can then be resolved; that means, what is asked to get was done; or Rejected; if thre's an error...... we can produce and consume promises, when we produce a promise, we create a promise and send a result using that promise, when we consume, we can use a call-back-function fulfillment and rejection of our promise
+//Promise: its an object that keeps track whether an eveny has happened or not, if happened, determine what to do with it. Promise is a time sensitive event and so it has different states, when the event hasn't happened, it is in a 'pending' state: when the event happened, it is in a fullfilled state: the fullfilled state can then be resolved; that means, what is asked to get was done; or Rejected; if there's an error...... we can produce and consume promises, when we produce a promise, we create a promise and send a result using that promise, when we consume, we can use a call-back-function fulfillment and rejection of our promise
 
 
 
@@ -278,40 +278,40 @@ getRecipeAw().then(res => {
 
 //Weather API-call
 
-// function getWeather (woeid) {
-//     fetch(
-//      `https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`
-//     ) //same origin policy
-//      .then(result => {
-//       console.log(result);
-//       return result.json();
-//      })
-//      .then(data => {
-//         //  console.log(data);
-//         const today = data.consolidated_weather[0]
-//         console.log(`The temperature in ${data.title} today is between ${today.min_temp} and ${today.max_temp} `)
-//      })
-//      .catch(e => {
-//       console.log(e);
-//      });
-// }
+function getWeather (woeid) {
+    fetch(
+     `https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`
+    ) //same origin policy
+     .then(result => {
+      console.log(result);
+      return result.json();
+     })
+     .then(data => {
+        //  console.log(data);
+        const today = data.consolidated_weather[0]
+        console.log(`The temperature in ${data.title} today is between ${today.min_temp} and ${today.max_temp} `)
+     })
+     .catch(e => {
+      console.log(e);
+     });
+}
 
-// getWeather(44418);
-// getWeather(2487956);
-
-
-
-// // Using async and await to consume promise from fetch
-
-// async function getweatherAw (woeid) {
-//     const result = await fetch(
-//      `https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`
-//     );
-//     const data = await result.json();
-
-//     console.log(data);
-// }
+getWeather(44418);
+getWeather(2487956);
 
 
-// getweatherAw(44418);
-// getweatherAw(2487956);
+
+// Using async and await to consume promise from fetch
+
+async function getweatherAw (woeid) {
+    const result = await fetch(
+     `https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${woeid}/`
+    );
+    const data = await result.json();
+
+    console.log(data);
+}
+
+
+getweatherAw(44418);
+getweatherAw(2487956);
